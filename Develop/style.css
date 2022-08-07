@@ -30,10 +30,18 @@ textarea{
   border-radius: 15px;
 }
 
+.column {
+  border: 1px solid red;
+}
+
+.column div {
+  border: 1px solid blue;
+}
+
 .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
 }
 
 .hour {
