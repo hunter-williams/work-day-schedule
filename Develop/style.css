@@ -17,6 +17,10 @@ body {
   width: 20%;
   padding: 1%;
   font-weight: 900;
+  margin-bottom: 5%;
+}
+.container button:hover{
+  background-color: darkgrey;
 }
 
 .column div {
@@ -42,6 +46,12 @@ body {
   /* color: white; */
   font-weight: 900;
   font-size: 20px;
+  
+}
+
+.column div span:hover{
+  cursor: pointer;
+  color: black;
 }
 
 .past {
