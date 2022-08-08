@@ -13,7 +13,7 @@ for (var i = 0; i < allTimes.length; i++){
        // past
        allTimes[i].classList.add('past')
        checkStorage(allTimes[i].id) 
-    } else if (allTimes[i].id === currentHour){
+    } else if (allTimes[i].id == currentHour){
         // present
         allTimes[i].classList.add('present')
         checkStorage(allTimes[i].id)   
