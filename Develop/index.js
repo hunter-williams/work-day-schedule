@@ -51,5 +51,10 @@ function checkStorage(id){
         document.getElementById(id).children[1].value = localStorage.getItem(id)
     }
 }
+
+function clearStorage (){
+    localStorage.clear();
+    location.reload();
+}
 // refresh page
     // pull from local storage
