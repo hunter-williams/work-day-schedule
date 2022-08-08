@@ -1,60 +1,48 @@
-// display current date
+// current hour
 const today = new Date();
 var currentHour = moment(today).format('H')
-var day = moment().format('LLLL')
 
+// display current date
+var day = moment().format('LLLL')
 $('#current-day').html(day)
 
-// for (var i =0; i < localStorage.length; i++){
-//     const key = localStorage.key(i)
-//     console.log(`${key}:${localStorage.getItem(key)}`)
-// }
-
-// time blocks are color coded 
+// loop through all time blocks and color code - check local storage 
 var allTimes = $('.row-md-1')
-console.log(currentHour)
-console.log(allTimes.length)
 for (var i = 0; i < allTimes.length; i++){
     if (allTimes[i].id < currentHour){
        // past
-       console.log('past', allTimes[i].id)
-       allTimes[i].style.backgroundColor = 'red' 
+       allTimes[i].classList.add('past')
        checkStorage(allTimes[i].id) 
     } else if (allTimes[i].id === currentHour){
         // present
-        console.log('present', allTimes[i].id)
-        allTimes[i].style.backgroundColor = 'yellow'
+        allTimes[i].classList.add('present')
         checkStorage(allTimes[i].id)   
     } else if (allTimes[i].id > currentHour){
          // future
-         console.log('future', allTimes[i].id)
-         allTimes[i].style.backgroundColor = 'green' 
+         allTimes[i].classList.add('future') 
          checkStorage(allTimes[i].id)  
     }
 }
 
-// onclick 
+// onclick save to local storage
 function saveNote(saveButton){
     var row = saveButton.parentElement
     var input = row.children[1].value
     var id = row.id
-    console.log('Id:',id,'Input: ',input)
+    // console.log('Id:',id,'Input: ',input)
     
     window.localStorage.setItem(id,input)
-    var get = localStorage.getItem(id)
-    console.log(get)
 }
-    // enter an event
-    // save to local storage
+
+// check if key in local storage
 function checkStorage(id){
     if (localStorage.getItem(id)){
         document.getElementById(id).children[1].value = localStorage.getItem(id)
     }
 }
 
+// clear local storage - refresh page
 function clearStorage (){
     localStorage.clear();
     location.reload();
 }
-// refresh page
-    // pull from local storage
